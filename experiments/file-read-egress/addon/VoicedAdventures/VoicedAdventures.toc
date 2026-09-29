@@ -3,7 +3,7 @@
 ## Notes: 朗读 NPC 对话与任务详情。请同时开启桌面助手，音源与 API 在助手中设置。
 ## Author: 冒险有声
 ## IconTexture: Interface\AddOns\VoicedAdventures\Icon.tga
-## Version: 0.1.0
+## Version: 0.1.1
 ## SavedVariables: QuestVoiceResourceDB
 
 Main.lua

@@ -1,12 +1,14 @@
 # 冒险有声 · Voiced Adventures
 
-为游戏任务和 NPC 对话提供朗读的 Windows 桌面助手与游戏插件。`v0.1.0` 是首个精简发布版本。
+为游戏任务和 NPC 对话提供朗读的 Windows 桌面助手与游戏插件。当前版本为 `v0.1.1`。
 
 ## 下载与安装
 
 在 [Releases](https://github.com/bigs-ad/VoicedAdventures/releases) 下载 Windows 压缩包，完整解压，不要直接在压缩包内运行。
 
-1. 退出游戏：现代客户端使用压缩包的 `Modern/AddOns/VoicedAdventures`，Turtle 旧版客户端使用 `Turtle/AddOns/VoicedAdventures`。将对应的文件夹放入游戏的 `Interface/AddOns`，不要同时安装两份。升级测试版时先备份并移走旧的同名插件目录，避免残留文件混入；不要删除其他插件。
+**玩家请先打开压缩包根目录的 [使用说明.txt](使用说明.txt)**，不用阅读开发文档。
+
+1. 退出游戏：正式服或无限服使用压缩包的 `正式服与无限服/AddOns/VoicedAdventures`，水豚服使用 `水豚服/AddOns/VoicedAdventures`。将对应的文件夹放入游戏的 `Interface/AddOns`，不要同时安装两份。升级测试版时先备份并移走旧的同名插件目录，避免残留文件混入；不要删除其他插件。
 2. 安装 Windows x64 .NET 9 Desktop Runtime（9.0.13 或更新的 9.0 补丁版本），并确保系统有可用的中文语音。桌面助手还使用 Windows 自带的 .NET Framework 4.x 语音组件。
 3. 正常双击 `Assistant/VoicedAdventures.exe`，不要以管理员身份运行整个助手。游戏接收器需要时会单独请求 Windows 权限。
 4. 在游戏中启用插件，点击对话窗口旁的播放按钮，或输入 `/va` 打开设置。停止按钮仅停止朗读，不断开连接。
@@ -37,7 +39,7 @@
 
 ## 兼容性与限制
 
-本项目包含现代客户端和旧版 Turtle 兼容路径。不同客户端、扩展插件、系统权限和安全软件可能影响连接；保留兼容代码不等于所有客户端版本均已实机验证。
+当前适配目标是正式服、无限服和水豚服；其他怀旧服暂未适配。不同客户端、扩展插件、系统权限和安全软件可能影响连接；保留兼容代码不等于所有客户端版本均已实机验证。
 
 本次发布执行离线自动化与构建检查，不将其冒充为真实游戏或云端付费端到端验收。使用前应先验证系统语音，再以短文本测试自己的云服务。具体结果见 [发布说明](docs/RELEASE-NOTES.md)。
 

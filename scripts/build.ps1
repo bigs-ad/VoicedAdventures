@@ -7,6 +7,8 @@ try {
     if (!$SkipRestore) { & "$PSScriptRoot/restore.ps1" }
     & node --test tests/release-audit.mjs
     if ($LASTEXITCODE -ne 0) { throw 'Release source audit failed' }
+    & node --test tests/player-guide.test.mjs
+    if ($LASTEXITCODE -ne 0) { throw 'Player guide checks failed' }
     & "$PSScriptRoot/build-resource-probe.ps1"
     & "$PSScriptRoot/build-streaming-probe.ps1"
     & "$PSScriptRoot/test-release-providers.ps1"

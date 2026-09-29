@@ -3,7 +3,7 @@ param([switch]$SkipBuild)
 $ErrorActionPreference = 'Stop'
 $root = Split-Path $PSScriptRoot -Parent
 $artifacts = Join-Path $root 'artifacts'
-$zip = Join-Path $artifacts 'VoicedAdventures-v0.1.0.zip'
+$zip = Join-Path $artifacts 'VoicedAdventures-v0.1.1.zip'
 if (Test-Path -LiteralPath $zip) { throw "Archive already exists: $zip. Move or remove it explicitly before packaging again." }
 if (!$SkipBuild) { & "$PSScriptRoot/build.ps1" }
 $stage = Join-Path $root ('build/package-' + [Guid]::NewGuid().ToString('N'))
@@ -19,18 +19,19 @@ foreach ($name in @('QuestVoiceStreaming.dll','QuestVoiceStreaming.runtimeconfig
 }
 Add-ReleaseFile 'build/tencent-streaming-probe/QuestVoiceStreaming.exe' 'Assistant/VoicedAdventures.exe'
 Add-ReleaseFile 'docs/TraceEvent-LICENSE.txt' 'Assistant/TraceEvent-LICENSE.txt'
-foreach ($variant in @('Modern','Turtle')) {
-    $source = if ($variant -eq 'Modern') { 'build/file-read-egress/VoicedAdventures' } else { 'build/turtle/VoicedAdventures' }
+foreach ($variant in @('正式服与无限服','水豚服')) {
+    $source = if ($variant -eq '正式服与无限服') { 'build/file-read-egress/VoicedAdventures' } else { 'build/turtle/VoicedAdventures' }
     foreach ($name in @('Main.lua','VoicedAdventures.toc','Icon.tga','OWNERSHIP.txt')) {
         Add-ReleaseFile "$source/$name" "$variant/AddOns/VoicedAdventures/$name"
     }
     $names = @('B','S') + @(0..15 | ForEach-Object { 'H{0:X}' -f $_ })
-    if ($variant -eq 'Modern') { $names += @('A') + @(1..7 | ForEach-Object { "fresh$_" }) }
+    if ($variant -eq '正式服与无限服') { $names += @('A') + @(1..7 | ForEach-Object { "fresh$_" }) }
     foreach ($name in $names) {
         Add-ReleaseFile "$source/Sounds/$name.wav" "$variant/AddOns/VoicedAdventures/Sounds/$name.wav"
     }
 }
 foreach ($name in @('README.md','THIRD-PARTY.md','docs/RELEASE-NOTES.md')) { Add-ReleaseFile $name $name }
+Add-ReleaseFile '使用说明.txt' '使用说明.txt'
 $hashes = [ordered]@{}
 foreach ($name in ($manifest | Sort-Object)) {
     $hashes[$name] = (Get-FileHash -LiteralPath (Join-Path $stage $name) -Algorithm SHA256).Hash

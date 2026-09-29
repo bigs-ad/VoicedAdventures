@@ -33,7 +33,7 @@ namespace QuestVoiceStreaming {
             using(var icon=new Icon(stream)) Icon=(Icon)icon.Clone();
             store=credentialStore??CredentialStore.ForCurrentUser();
             qwenStore=loadSaved&&credentialStore==null?VoicedAdventures.Qwen.QwenStore.Current():new VoicedAdventures.Qwen.QwenStore(store.PreferencesPath+".qwen");
-            Text="冒险有声 · Voiced Adventures · 0.1.0"; ClientSize=new Size(780,780); MinimumSize=new Size(720,800);
+            Text="冒险有声 · Voiced Adventures · 0.1.1"; ClientSize=new Size(780,780); MinimumSize=new Size(720,800);
             StartPosition=FormStartPosition.CenterScreen; Font=new Font("Microsoft YaHei UI",10); BackColor=Color.White;
             var layout=new TableLayoutPanel { Dock=DockStyle.Fill,Padding=new Padding(22),ColumnCount=2,RowCount=11 };
             layout.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute,120)); layout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent,100));

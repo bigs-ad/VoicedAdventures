@@ -296,7 +296,7 @@ namespace QuestVoiceStreaming {
             automatic.Parent=null;automatic.Visible=false;saveCredentials.Parent=null;saveCredentials.Visible=false;
             clearCredentials.Parent=null;clearCredentials.Visible=false;
             old.Dispose();dialogue.Clear();ClientSize=new Size(780,650);MinimumSize=new Size(700,580);
-            Text="冒险有声 · Voiced Adventures · 0.1.0";stop.Text="停止朗读";
+            Text="冒险有声 · Voiced Adventures · 0.1.1";stop.Text="停止朗读";
             pauseConnection.CheckedChanged+=delegate {if(!syncEnable)SetConnectionPaused(!pauseConnection.Checked);};
             settingsButton.Click+=delegate {OpenSettings();};
             saveTimer.Tick+=delegate {FlushCredentialEdits();};
