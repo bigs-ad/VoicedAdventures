@@ -1,0 +1,16 @@
+/build/
+/artifacts/
+/node_modules/
+*.log
+*.user
+*.suo
+*.tmp
+.env
+.env.*
+credentials*.json
+settings*.json
+*.dpapi
+*.bin
+*.pcm
+*.qvp
+__pycache__/

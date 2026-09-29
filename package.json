@@ -1,0 +1,6 @@
+{
+  "name": "quest-voice-probe-tests",
+  "private": true,
+  "scripts": { "test": "pwsh -NoProfile -File scripts/build.ps1" },
+  "devDependencies": { "fengari-node-cli": "0.1.0", "luaparse": "0.3.1" }
+}
